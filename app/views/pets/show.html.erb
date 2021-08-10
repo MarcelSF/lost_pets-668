@@ -1,0 +1,7 @@
+<h1><%= @pet.name %></h1>
+<h3>Species: <%= @pet.species %></h3>
+<h3>Found <%= @pet.days_ago %> days ago</h3>
+<p>Address: <%= @pet.address %></p>
+
+<p>If you find this information to be incorrect, please <%= link_to 'click here', edit_pet_path(@pet) %>.</p>
+<p>If this pet has already been rescued, please <%= link_to 'click here', pet_path(@pet), method: :delete, data: {confirm: 'Are you sure?'} %> to remove the pet from out database</p>
