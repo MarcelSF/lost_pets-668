@@ -14,16 +14,22 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @pet.save
-    redirect_to pet_path(@pet)
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
-    @pet.update(pet_params)
-    redirect_to pet_path(@pet)
+    if @pet.update(pet_params)
+      redirect_to pet_path(@pet)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
